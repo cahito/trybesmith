@@ -12,4 +12,10 @@ export default class ProductsService {
   public create(product: Product): Promise<Product> {
     return this.model.create(product);
   }
+
+  public async list(): Promise<Product[]> {
+    const productsList = await this.model.list();
+
+    return productsList;
+  }
 }
