@@ -11,7 +11,7 @@ export default class OrdersService {
 
   public async list(): Promise<Order[]> {
     const ordersList = await this.model.list();
-    console.log('Service', ordersList);
+
     return ordersList;
   }
 }
