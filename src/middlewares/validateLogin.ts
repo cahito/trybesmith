@@ -1,6 +1,8 @@
+import { NextFunction, Request, Response } from 'express';
 import Login from '../interfaces/login.interface';
 
-const validateLogin = (data: Login) => {
+const validateLogin = (req: Request, _res: Response, next: NextFunction) => {
+  const data: Login = req.body;
   const { username, password } = data;
   if (!username) {
     const err = new Error('"username" is required');
@@ -17,6 +19,8 @@ const validateLogin = (data: Login) => {
     err.name = 'Unauthorized';
     throw err;
   }
+
+  next();
 };
 
 export default validateLogin;

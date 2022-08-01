@@ -1,6 +1,8 @@
+import { NextFunction, Request, Response } from 'express';
 import Product from '../interfaces/products.interface';
 
-const validateProductName = (data: Product) => {
+const validateProductName = (req: Request, _res: Response, next: NextFunction) => {
+  const data: Product = req.body;
   const { name } = data;
   if (!name) {
     const err = new Error('"name" is required');
@@ -17,6 +19,8 @@ const validateProductName = (data: Product) => {
     err.name = 'UnprocessableEntity';
     throw err;
   }
+
+  next();
 };
 
 export default validateProductName;
