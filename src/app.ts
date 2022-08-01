@@ -24,8 +24,8 @@ app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
       return res.status(401).json({ message });
     case 'NotFoundError':
       return res.status(404).json({ message });
-    case 'ConflictError':
-      return res.status(409).json({ message });
+    case 'UnprocessableEntity':
+      return res.status(422).json({ message });
     default:
       console.error(err);
       res.sendStatus(500);
