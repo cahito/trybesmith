@@ -32,11 +32,4 @@ export default class UsersModel {
 
     return user;
   }
-/*   public async list(): Promise<User[]> {
-    const sql = `
-    SELECT * FROM Trybesmith.Users`;
-    const [rows] = await this.connection.execute(sql);
-    console.log(rows);
-    return rows as User[];
-  } */
 }
